@@ -1,0 +1,16 @@
+{
+    "executionEnvironments": [
+        {
+            "root": "."
+        }
+    ],
+    "extraPaths": [
+        ".",
+        "backend",
+        "detection",
+        "backend/app"
+    ],
+    "typeCheckingMode": "basic",
+    "diagnosticMode": "workspace",
+    "useLibraryCodeForTypes": true
+}
