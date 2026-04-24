@@ -114,14 +114,18 @@ export default function DashboardPage() {
                 id: number; violation_type: string; camera_id: string;
                 timestamp: string; confidence: number; image_path?: string;
               }) => (
-                <div key={v.id} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '0.65rem 0',
-                  borderBottom: '1px solid var(--border-subtle)' }}>
+                <div key={v.id} style={{
+                  display: 'flex', alignItems: 'center', gap: 10, padding: '0.65rem 0',
+                  borderBottom: '1px solid var(--border-subtle)'
+                }}>
                   {v.image_path ? (
                     <img src={`${BASE}/snapshots/${v.image_path.split('/').pop()}`}
                       alt="snapshot" style={{ width: 42, height: 32, objectFit: 'cover', borderRadius: 6, flexShrink: 0 }} />
                   ) : (
-                    <div style={{ width: 42, height: 32, background: 'var(--bg-elevated)', borderRadius: 6, flexShrink: 0,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{
+                      width: 42, height: 32, background: 'var(--bg-elevated)', borderRadius: 6, flexShrink: 0,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center'
+                    }}>
                       <ShieldAlert size={14} style={{ color: 'var(--accent-danger)' }} />
                     </div>
                   )}
@@ -151,8 +155,8 @@ export default function DashboardPage() {
           </div>
           <div className="feed-container" style={{ minHeight: 400, background: '#000', borderRadius: 12, overflow: 'hidden', position: 'relative' }}>
             {activeCam ? (
-              <img 
-                src={`${BASE}/api/cameras/${activeCam.camera_id}/stream`} 
+              <img
+                src={`${BASE}/api/cameras/${activeCam.camera_id}/stream`}
                 alt="Live stream"
                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />

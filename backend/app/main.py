@@ -21,7 +21,7 @@ try:
     from backend.app.config import get_settings
     from backend.app.models.database import init_db, User, get_db, Camera
     from backend.app.routers import auth, detect, violations, stats, cameras, websockets, ppe
-    from backend.app.routes.auth import hash_password
+    from backend.app.routers.auth import hash_password
     from backend.app.services.alert_service import get_recent_alerts, alert_service
     from backend.app.core.redis_client import redis_client
     from backend.app.workers.event_consumer import violation_consumer
@@ -30,7 +30,7 @@ except ImportError:
     from .config import get_settings
     from .models.database import init_db, User, get_db, Camera
     from .routers import auth, detect, violations, stats, cameras, websockets, ppe
-    from .routes.auth import hash_password
+    from .routers.auth import hash_password
     from .services.alert_service import get_recent_alerts, alert_service
     from .core.redis_client import redis_client
     from .workers.event_consumer import violation_consumer

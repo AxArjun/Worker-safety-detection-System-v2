@@ -6,7 +6,7 @@ from typing import Optional
 
 from sqlalchemy.orm import Session
 from ..core.redis_client import redis_client
-from ..models.database import _SessionLocal, Violation
+from ..models import database
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +53,7 @@ async def process_violation_event(data: dict):
         return
 
     # Database persistence
-    if _SessionLocal is None:
+    if database._SessionLocal is None:
         logger.error("Database not initialized. Cannot save violation.")
         return
 
@@ -63,9 +63,9 @@ async def process_violation_event(data: dict):
     await loop.run_in_executor(None, _save_to_db, violation_type, camera_id, confidence, snapshot_path)
 
 def _save_to_db(violation_type, camera_id, confidence, snapshot_path):
-    db: Session = _SessionLocal()
+    db: Session = database._SessionLocal()
     try:
-        v = Violation(
+        v = database.Violation(
             timestamp=datetime.now(timezone.utc),
             violation_type=violation_type,
             camera_id=camera_id,
