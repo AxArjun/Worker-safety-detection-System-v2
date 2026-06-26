@@ -430,3 +430,16 @@ The OTP debug endpoint also returns the generated OTP in the response body — r
 - **OTP email delivery** — OTP sending (`/api/auth/otp/send`) requires SMTP credentials; without them the OTP is returned in the response body (dev convenience only — remove before production).
 - **Redis required** — The background workers depend on Redis. If Redis is unavailable at startup, alert processing and WebSocket broadcasts will be disabled; frame capture and local violation recording still function.
 - **15 FPS cap** — Camera streams are capped at 15 FPS by default to manage CPU usage on YOLO inference. Adjustable via `CameraStream.fps_limit`.
+
+# 👨‍💻 Author
+
+**Arjun R K**
+
+
+GitHub: https://github.com/AxArjun
+
+---
+
+# 📜 License
+
+MIT License
